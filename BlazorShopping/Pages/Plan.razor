@@ -1,0 +1,17 @@
+﻿@page "/planera"
+@using BlazorShopping.Services
+
+@inject ArticleService ArticleService
+
+
+<h2>Planera</h2>
+
+@foreach (var section in sectionModels)
+{
+    <h3 class="brown lighten-4">@(section.SectionName)</h3>
+
+    @foreach (var planningModel in section.PlanningModels)
+    {
+        <PlanningSelector PlanningModel="planningModel" />
+    }
+}

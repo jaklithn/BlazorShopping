@@ -348,3 +348,12 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/BlazorShopping/appsettings.Development.json
+/BlazorShopping/Properties/serviceDependencies.local.json
+/BlazorShopping/Properties/serviceDependencies.json
+/BlazorShopping/Properties/serviceDependencies.BlazorShopping - Web Deploy.json
+/BlazorShopping/Properties/ServiceDependencies/local/mssql1.arm.json
+/BlazorShopping/Properties/ServiceDependencies/local
+/BlazorShopping/Properties/ServiceDependencies/BlazorShopping - Web Deploy/signalr1.arm.json
+/BlazorShopping/Properties/ServiceDependencies/BlazorShopping - Web Deploy/profile.arm.json
+/BlazorShopping/Properties/ServiceDependencies/BlazorShopping - Web Deploy/mssql2.arm.json

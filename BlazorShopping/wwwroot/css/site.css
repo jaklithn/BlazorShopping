@@ -1,0 +1,178 @@
+/* General */
+body {
+    height: 100vh;
+}
+
+main {
+    margin: 0;
+    height: calc(100% - 12vw);
+    overflow: auto;
+}
+
+.cell-center {
+    justify-self: center;
+}
+
+.cell-right {
+    justify-self: end;
+}
+
+
+
+/* Footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 12vw;
+    line-height: 12vw;
+    z-index: 500;
+}
+
+    footer .menu {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+        footer .menu .material-icons {
+            font-size: 7vw;
+            line-height: 12vw;
+        }
+
+        footer .menu a {
+            text-align: center;
+            color: white;
+        }
+
+            footer .menu a.active {
+                color: #2196f3;
+                background-color: white;
+                border: 0.2vh solid #2196f3;
+            }
+
+
+/* Headers */
+h1 {
+    font-size: 12vw;
+    color: #2196f3;
+}
+
+h2 {
+    width: 100%;
+    height: 12vw;
+    line-height: 12vw;
+    font-size: 8vw;
+    display: block;
+    color: white;
+    background-color: #2196f3;
+    text-align: center;
+    margin-bottom: 4vw;
+}
+
+h3 {
+    height: 10vw;
+    line-height: 9vw;
+    font-size: 6vw;
+    padding: 0 2vw;
+    margin: 3vw 0;
+}
+
+.poster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20vh;
+    height: 100%;
+}
+
+
+
+/* Planning Selector */
+.planning-selector {
+    display: grid;
+    width: 96%;
+    grid-template-columns: 60% 1.3fr 2fr 1fr 1fr;
+    column-gap: 2vw;
+    margin: 0 2vw;
+}
+
+    .planning-selector * {
+        font-size: 5vw;
+    }
+
+    .planning-selector input[type=text] {
+        text-align: right;
+        height: 6.3vw;
+        font-size: 5vw;
+        padding-right: 1vw;
+        border-radius: 0.5vw;
+    }
+
+    .planning-selector input.selected {
+        background-color: #c8e6c9;
+    }
+
+    .planning-selector input.empty {
+        color: white;
+    }
+
+    .planning-selector .btn {
+        height: 6.3vw;
+        width: 6.3vw;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .planning-selector .btn i {
+            font-size: 5vw;
+        }
+
+
+
+/* Shopping Selector */
+.shopping-selector {
+    display: grid;
+    width: 96%;
+    grid-template-columns: 1fr 60% 1fr 2fr;
+    column-gap: 2vw;
+    font-size: 5vw;
+    margin: 0 2vw;
+    align-items: center;
+}
+
+
+    .shopping-selector.selected {
+        text-decoration: line-through;
+        color: silver;
+    }
+
+    .shopping-selector [type="checkbox"] + span:not(.lever) {
+        display: block;
+        margin-top: 1.5vw;
+    }
+
+
+
+/* Error display */
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
