@@ -50,7 +50,7 @@ namespace BlazorShopping
 
             if (env.IsDevelopment())
             {
-                //ApplyDatabaseMigrations(app);
+                ApplyDatabaseMigrations(app);
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -72,7 +72,7 @@ namespace BlazorShopping
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapHub<SyncHub>("/synchub");
-                endpoints.MapFallbackToPage("/_Host", "/planera");
+                endpoints.MapFallbackToPage("/_Host");
             });
         }
 

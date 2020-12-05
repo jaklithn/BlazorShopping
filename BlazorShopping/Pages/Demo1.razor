@@ -1,0 +1,13 @@
+﻿@page "/demo1"
+
+<p>@counter</p>
+<button @onclick="Increase">Öka</button>
+
+@code {
+    private int counter;
+
+    private void Increase()
+    {
+        counter += 1;
+    }
+}
