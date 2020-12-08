@@ -1,0 +1,15 @@
+﻿Ange namn i komponenten:
+<input @bind="Name" @bind:event="oninput" @onkeyup="Feedback" />
+
+@code {
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public EventCallback<string> NameChanged { get; set; }
+
+    private Task Feedback()
+    {
+        return NameChanged.InvokeAsync(Name);
+    }
+}

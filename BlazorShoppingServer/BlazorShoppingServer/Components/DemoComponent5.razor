@@ -1,0 +1,18 @@
+﻿@using BlazorShoppingServer.Models
+
+Ange artikelnamn i komponenten:
+<input @bind="PlanningModel.ArticleName" />
+<button @onclick="Feedback">Feedbacka manuellt tillbaka till sidan</button>
+
+@code {
+    [Parameter]
+    public PlanningModel PlanningModel { get; set; }
+
+    [Parameter]
+    public EventCallback<PlanningModel> PlanningModelChanged { get; set; }
+
+    private Task Feedback()
+    {
+        return PlanningModelChanged.InvokeAsync(PlanningModel);
+    }
+}

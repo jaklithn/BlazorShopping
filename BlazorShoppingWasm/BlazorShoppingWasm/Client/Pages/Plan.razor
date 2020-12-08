@@ -1,0 +1,13 @@
+﻿@page "/planera"
+
+<h2>Planera</h2>
+
+@foreach (var section in SectionModels)
+{
+    <h3 class="brown lighten-4">@(section.SectionName)</h3>
+
+    @foreach (var planningModel in section.PlanningModels)
+    {
+        <PlanningSelector PlanningModel="planningModel" />
+    }
+}

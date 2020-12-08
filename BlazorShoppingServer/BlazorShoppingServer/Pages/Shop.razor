@@ -1,0 +1,46 @@
+﻿@page "/handla"
+@using BlazorShoppingServer.Services
+@using BlazorShoppingServer.Models
+@inject ArticleService ArticleService
+
+<h2>Handla</h2>
+
+<h3 class="teal lighten-3">Varor att plocka</h3>
+@foreach (var shoppingModel in GetShoppingModelsSorted(false))
+{
+    <ShoppingSelector ShoppingModel="shoppingModel" ShoppingModelChanged="RefreshList" />
+}
+
+<h3 class="teal lighten-3">Varor plockade i dag</h3>
+@foreach (var shoppingModel in GetShoppingModelsSorted(true))
+{
+    <ShoppingSelector ShoppingModel="shoppingModel" ShoppingModelChanged="RefreshList" />
+}
+
+
+@code {
+    private IList<ShoppingModel> shoppingModels = new List<ShoppingModel>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        shoppingModels = await ArticleService.GetShoppingContent();
+        await base.OnInitializedAsync();
+    }
+
+    void RefreshList(ShoppingModel changedModel)
+    {
+        var shoppingModel = shoppingModels.Single(s => s.ArticleId == changedModel.ArticleId);
+        shoppingModel.PickTime = changedModel.PickTime;
+        StateHasChanged();
+    }
+
+    private IEnumerable<ShoppingModel> GetShoppingModelsSorted(bool picked)
+    {
+        var filteredItems = picked
+            ? shoppingModels.Where(s => s.PickTime.HasValue)
+            : shoppingModels.Where(s => !s.PickTime.HasValue);
+
+        return filteredItems.OrderBy(s => s.ArticleOrder);
+    }
+}

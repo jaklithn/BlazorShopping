@@ -1,0 +1,17 @@
+﻿@page "/demo5"
+@using BlazorShoppingServer.Models
+
+<DemoComponent5 @bind-PlanningModel="planningModel" />
+<p>Sidan har fått tillbaka värdet: @planningModel.ArticleName</p>
+
+@code {
+    private PlanningModel planningModel;
+
+    protected override void OnInitialized()
+    {
+        planningModel = new PlanningModel
+        {
+            ArticleName = "Köttbullar"
+        };
+    }
+}

@@ -1,0 +1,32 @@
+﻿@using BlazorShoppingWasm.Client.Services
+@using BlazorShoppingWasm.Shared.Models
+@inject ArticleApi ArticleApi
+
+
+<div class="shopping-selector @(ShoppingModel.IsSelected ? "selected" : "")" @onclick="Toggle">
+    <div>
+        <input type="checkbox" class="filled-in" @bind="ShoppingModel.IsSelected">
+        <span></span>
+    </div>
+    <div>@(ShoppingModel.ArticleName)</div>
+    <div class="cell-right">@(ShoppingModel.Quantity)</div>
+    <div>@(ShoppingModel.ArticleUnit)</div>
+</div>
+
+
+@code
+{
+    [Parameter]
+    public ShoppingModel ShoppingModel { get; set; }
+
+    [Parameter]
+    public EventCallback<ShoppingModel> ShoppingModelChanged { get; set; }
+
+    private async Task Toggle(MouseEventArgs e)
+    {
+        ShoppingModel.IsSelected = !ShoppingModel.IsSelected;
+        await ArticleApi.ToggleShopping(ShoppingModel);
+        await ShoppingModelChanged.InvokeAsync(ShoppingModel);
+    }
+
+}

@@ -1,0 +1,12 @@
+﻿@page "/demo3"
+
+<DemoComponent3 Name="@fullName" />
+
+@code {
+    private string fullName;
+
+    protected override void OnInitialized()
+    {
+        fullName = "Anders";
+    }
+}

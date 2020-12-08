@@ -1,0 +1,13 @@
+﻿@page "/demo4"
+
+<DemoComponent4 @bind-Name="fullName" />
+<p>Sidan har fått tillbaka värdet: @fullName</p>
+
+@code {
+    private string fullName;
+
+    protected override void OnInitialized()
+    {
+        fullName = "Anders Karlsson";
+    }
+}
